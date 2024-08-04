@@ -1,20 +1,23 @@
-public class SelectionSort implements Algorithm {
+package sort;
 
-    public void doAlgorithm(Integer[] array) {
+public class SelectionSort implements SortAlgorithm {
+
+    public Integer[] sort(Integer[] array) {
         Integer[] sortedArray = new Integer[array.length];
         for (int i = 0; i < sortedArray.length; i++) {
             int min = findSmallestNumberIndex(array);
             sortedArray[i] = array[min];
             array[min] = null;
         }
+        return sortedArray;
     }
 
-    static int findSmallestNumberIndex(Integer[] arr) {
-        Integer min = arr[0];
+    static int findSmallestNumberIndex(Integer[] array) {
+        Integer min = array[0];
         int smallestNumberIndex = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != null && (min == null || arr[i] < min)) {
-                min = arr[i];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && (min == null || array[i] < min)) {
+                min = array[i];
                 smallestNumberIndex = i;
             }
         }
